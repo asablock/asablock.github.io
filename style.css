@@ -1,13 +1,86 @@
+@charset "UTF-8";
+
 html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6,
 form, fieldset, legend, img {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    padding: 8px;
+@font-face {
+    font-family: "Noto Sans";
+    src: url("font/NotoSans-Regular.ttf") format("truetype");
 }
 
-.header {
+:root {
+    --color-link-default: #FFF;
+    --color-link-hover: #009200;
+    --color-nav-background: #24292F;
+    --color-nav-font: #FFF;
+    --color-nav-item-border: #FFF;
+    --color-logo-border: #E6DCFF;
+    --color-logo-background: #2C3A47;
+    --color-logo-font: #DBC2FF;
+}
 
+body {
+    font-family: "Microsoft YaHei UI", "Segoe UI", SimSun, Arial, sans-serif;
+    font-size: 1em;
+}
+
+a {
+    text-decoration: none;
+    transition: color .5s;
+    color: var(--color-link-default);
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    transition: color .5s;
+}
+
+nav {
+    background-color: var(--color-nav-background);
+    width: 100%;
+}
+
+.navigator-bar {
+    list-style-type: none;
+    font-weight: 600;
+    color: var(--color-nav-font);
+    padding-left: .5em;
+}
+
+.navigator-bar li {
+    display: inline-block;
+    margin: 1.2em 0;
+    padding: 0 1em;
+    color: inherit;
+}
+
+.navigator-bar li:not(:last-child) {
+    border-right: 2px solid var(--color-nav-item-border);
+}
+
+.nav-container {
+    border: 0 none;
+    width: 100%;
+    overflow: hidden;
+}
+
+.white {
+    color: #FFF;
+}
+
+.logo {
+    display: inline;
+    width: 20px;
+    height: 20px;
+    border-radius: 5%;
+    border: 5px solid var(--color-logo-border);
+    background-color: var(--color-logo-background);
+    padding: 0 5px;
+    color: var(--color-logo-font);
+    user-select: none; /*让人把logo复制了可不行*/
+    font-family: "Noto Sans", sans-serif;
 }
