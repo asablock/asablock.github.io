@@ -1,87 +1,122 @@
-@charset "UTF-8";
+a, abbr, address, blockquote, body, caption, cite, code,
+dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2,
+h3, h4, h5, h6, html, iframe, img, ins, label, legend,
+li, object, ol, p, pre, q, small, span, strong, sub,
+sup, table, tbody, td, tfoot, th, thead, tr, ul, nav,
+header, article, audio, video {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6,
-form, fieldset, legend, img {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+nav, header, article {
+  display: block;
 }
 
 @font-face {
-    font-family: "Noto Sans";
-    src: url("../font/NotoSans-Regular.ttf") format("truetype");
+  font-family: "NotoSans";
+  src: url("../font/NotoSans-Regular.ttf") format("truetype");
 }
-
-:root {
-    --color-link-default: #FFF;
-    --opacity-link-hover: .7;
-    --color-nav-background: #24292F;
-    --color-nav-font: #FFF;
-    --color-nav-item-border: #FFF;
-    --color-logo-border: #E6DCFF;
-    --color-logo-background: #2C3A47;
-    --color-logo-font: #DBC2FF;
+@font-face {
+  font-family: "SegoeUI";
+  src: url("../font/segoeui.ttf") format("truetype");
 }
-
 body {
-    font-family: "Microsoft YaHei UI", "Segoe UI", SimSun, Arial, sans-serif;
-    font-size: 1em;
+  font-family: "Microsoft YaHei UI", "SegoeUI", SimSun, Arial, sans-serif;
+  font-size: 1em;
+  background: #696969;
+  background: url("../img/background.png");
+  background-repeat: repeat;
 }
 
 a {
-    text-decoration: none;
-    transition: opacity .5s;
-    color: var(--color-link-default);
+  text-decoration: none;
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  color: #FFF;
 }
 
 a:hover {
-    -moz-opacity: var(--opacity-link-hover);
-    opacity: var(--opacity-link-hover);
-    transition: opacity .5s;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -moz-transition: opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 nav {
-    background-color: var(--color-nav-background);
-    width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #24292F;
+  width: 100%;
 }
 
 .navigator-bar {
-    list-style-type: none;
-    font-weight: 600;
-    color: var(--color-nav-font);
-    padding-left: .5em;
+  list-style-type: none;
+  font-weight: 600;
+  color: #FFF;
+  padding-left: 0.5em;
 }
-
 .navigator-bar li {
-    display: inline-block;
-    margin: 1.2em 0;
-    padding: 0 1em;
-    color: inherit;
+  display: inline-block;
+  margin: 1.2em 0;
+  padding: 0 1em;
+  color: inherit;
 }
-
 .navigator-bar li:not(:last-child) {
-    border-right: 2px solid var(--color-nav-item-border);
-}
-
-.nav-container {
-    border: 0 none;
-    width: 100%;
-    overflow: hidden;
-}
-
-.white {
-    color: #FFF;
+  border-right: 2px solid #FFF;
 }
 
 .logo {
-    display: inline;
-    width: 20px;
-    height: 20px;
-    border-radius: 5%;
-    border: 5px solid var(--color-logo-border);
-    background-color: var(--color-logo-background);
-    padding: 0 5px;
-    color: var(--color-logo-font);
-    user-select: none; /*让人把logo复制了可不行*/
-    font-family: "Noto Sans", sans-serif;
+  display: inline;
+  width: 20px;
+  height: 20px;
+  border-radius: 5%;
+  border: 5px solid #E6DCFF;
+  background-color: #2C3A47;
+  padding: 0 5px;
+  color: #DBC2FF;
+  user-select: none;
+  font-family: "NotoSans", sans-serif;
 }
+
+.white {
+  color: #FFF;
+}
+
+.content-wrapper {
+  width: 75%;
+  margin: 0 auto;
+  border-color: #2d4958;
+  border-width: 0 5px;
+  border-style: inset;
+}
+
+header {
+  background-color: #EEE;
+  font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.title {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.tricky-text {
+  margin: 0.5em 0 0 1em;
+  color: #C9C9C9;
+  font-size: 1.2em;
+  font-weight: lighter;
+  font-style: italic;
+  font-family: "Lucida Console";
+}
+
+/*# sourceMappingURL=style.css.map */
