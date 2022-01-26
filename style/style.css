@@ -1,5 +1,5 @@
 a, abbr, address, blockquote, body, caption, cite, code,
-dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2,
+dd, del, dfn, div, dl, dt, rem, fieldset, form, h1, h2,
 h3, h4, h5, h6, html, iframe, img, ins, label, legend,
 li, object, ol, p, pre, q, small, span, strong, sub,
 sup, table, tbody, td, tfoot, th, thead, tr, ul, nav,
@@ -9,7 +9,7 @@ header, article, audio, video {
   box-sizing: border-box;
 }
 
-nav, header, article {
+nav, header, article, section {
   display: block;
 }
 
@@ -23,13 +23,13 @@ nav, header, article {
 }
 body {
   font-family: "Microsoft YaHei UI", "SegoeUI", SimSun, Arial, sans-serif;
-  font-size: 1em;
+  font-size: 1rem;
   background: #696969;
   background: url("../img/background.png");
   background-repeat: repeat;
 }
 
-a {
+a.link, a.nav-link {
   text-decoration: none;
   -webkit-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
@@ -39,7 +39,7 @@ a {
   color: #FFF;
 }
 
-a:hover {
+a.link:hover, a.nav-link:hover {
   -moz-opacity: 0.7;
   opacity: 0.7;
   -webkit-transition: opacity 0.5s;
@@ -60,12 +60,12 @@ nav {
   list-style-type: none;
   font-weight: 600;
   color: #FFF;
-  padding-left: 0.5em;
+  padding-left: 0.5rem;
 }
 .navigator-bar li {
   display: inline-block;
-  margin: 1.2em 0;
-  padding: 0 1em;
+  margin: 1.2rem 0;
+  padding: 0 1rem;
   color: inherit;
 }
 .navigator-bar li:not(:last-child) {
@@ -82,7 +82,9 @@ nav {
   padding: 0 5px;
   color: #DBC2FF;
   user-select: none;
-  font-family: "NotoSans", sans-serif;
+  font-family: NotoSans, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .white {
@@ -92,31 +94,101 @@ nav {
 .content-wrapper {
   width: 75%;
   margin: 0 auto;
+  border-width: 0 5px 5px 5px;
   border-color: #2d4958;
-  border-width: 0 5px;
-  border-style: inset;
+  border-style: solid;
+  border-radius: 0 0 5% 5%;
+  padding-bottom: 1rem;
+  background-color: #FAFAFA;
 }
 
 header {
   background-color: #EEE;
-  font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
   font-weight: 600;
   padding: 20px;
 }
 
-.title {
-  display: block;
-  font-size: 2em;
-  font-weight: bold;
-}
-
 .tricky-text {
-  margin: 0.5em 0 0 1em;
+  margin: 0.5rem 0 0 1rem;
   color: #C9C9C9;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: lighter;
   font-style: italic;
-  font-family: "Lucida Console";
+  font-family: "Lucida Console", Consolas, sans-serif;
 }
 
-/*# sourceMappingURL=style.css.map */
+hr {
+  margin: 0.5rem 0;
+  height: 2px;
+  background-color: #AAA;
+  border: none;
+}
+
+hr.content-separator {
+  margin: 0;
+}
+
+.content {
+  padding: 20px;
+  background-color: #FAFAFA;
+}
+
+.category {
+  margin-top: 1rem;
+}
+
+.title {
+  font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
+  font-weight: bold;
+  color: #000;
+  display: block;
+  font-size: 2rem;
+}
+
+h2.category-title {
+  font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
+  font-weight: bold;
+  color: #000;
+  font-size: 1.8rem;
+}
+
+.anchor-mark {
+  opacity: 0;
+  color: #C90000;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.anchor-mark:hover, h2:hover .anchor-mark {
+  opacity: 1;
+}
+
+.production-icon {
+  border: 3px solid #2C3A47;
+  background-color: #FFF;
+}
+.production-icon img {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.production-show {
+  display: inline-block;
+  padding: 0.5rem;
+  width: 22%;
+  border: #E0E0E0 outset 3px;
+  background-color: #E0E0E0;
+  margin: 1rem 5px 0 0;
+}
+.production-show h3 {
+  font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
+  font-weight: bold;
+  color: #000;
+  font-size: 1.17rem;
+}
+.production-show p {
+  color: #696969;
+  text-indent: 1rem;
+}

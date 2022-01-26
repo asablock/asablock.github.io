@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 a, abbr, address, blockquote, body, caption, cite, code,
-dd, del, dfn, div, dl, dt, em, fieldset, form, h1, h2,
+dd, del, dfn, div, dl, dt, rem, fieldset, form, h1, h2,
 h3, h4, h5, h6, html, iframe, img, ins, label, legend,
 li, object, ol, p, pre, q, small, span, strong, sub,
 sup, table, tbody, td, tfoot, th, thead, tr, ul, nav,
@@ -11,8 +11,8 @@ header, article, audio, video {
   box-sizing: border-box;
 }
 
-// Initialize block HTML5 elements
-nav, header, article {
+// Initialize block HTML5 elrements
+nav, header, article, section {
   display: block;
 }
 
@@ -30,14 +30,23 @@ $color-link-default: #FFF;
 $opacity-link-hover: .7;
 $color-nav-background: #24292F;
 $color-nav-font: #FFF;
-$color-nav-item-border: #FFF;
+$color-nav-itrem-border: #FFF;
 $color-logo-border: #E6DCFF;
 $color-logo-background: #2C3A47;
 $color-logo-font: #DBC2FF;
 $color-body-background: #696969;
-$color-cw-border: #2d4958;
+$color-content-border: #2d4958;
 $color-header-background: #EEE;
 $color-tricky-text: #C9C9C9;
+$color-hr: #AAA;
+$color-content-background: #FAFAFA;
+$color-anchor-mark: #C90000;
+$color-production-show-border: #E0E0E0;
+$color-production-show-background: $color-production-show-border;
+$color-production-icon-border: #2C3A47;
+$color-title-font: #000;
+$color-production-show-p-font: #696969;
+$font-title: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
 
 @mixin prefix($property, $value, $browsers: webkit o moz ms) {
   @each $browser in $browsers {
@@ -49,20 +58,20 @@ $color-tricky-text: #C9C9C9;
 body {
   font: {
     family: "Microsoft YaHei UI", "SegoeUI", SimSun, Arial, sans-serif;
-    size: 1em;
+    size: 1rem;
   }
   background: $color-body-background;
   background: url("../img/background.png");
   background-repeat: repeat;
 }
 
-a {
+a.link {
   text-decoration: none;
   @include prefix(transition, opacity .5s);
   color: $color-link-default;
 }
 
-a:hover {
+a.link:hover {
   @include prefix(opacity, $opacity-link-hover, moz);
   @include prefix(transition, opacity .5s);
 }
@@ -78,17 +87,17 @@ nav {
   list-style-type: none;
   font-weight: 600;
   color: $color-nav-font;
-  padding-left: .5em;
+  padding-left: .5rem;
 
   li {
     display: inline-block;
-    margin: 1.2em 0;
-    padding: 0 1em;
+    margin: 1.2rem 0;
+    padding: 0 1rem;
     color: inherit;
   }
 
   li:not(:last-child) {
-    border-right: 2px solid $color-nav-item-border;
+    border-right: 2px solid $color-nav-itrem-border;
   }
 }
 
@@ -102,47 +111,130 @@ nav {
   padding: 0 5px;
   color: $color-logo-font;
   user-select: none;
-  font-family: "NotoSans", sans-serif;
+  font-family: NotoSans, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .white {
   color: #FFF;
 }
 
+a.nav-link {
+  @extend .link;
+}
+
 .content-wrapper {
   width: 75%;
   margin: 0 auto;
   border: {
-    color: $color-cw-border;
-    width: 0 5px;
-    style: inset;
+    width: 0 5px 5px 5px;
+    color: $color-content-border;
+    style: solid;
+    radius: 0 0 5% 5%;
   }
+  padding-bottom: 1rem;
+  background-color: $color-content-background;
 }
 
 header {
   background-color: $color-header-background;
-  font: {
-    family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
-    weight: 600;
-  }
+  font-weight: 600;
   padding: 20px;
 }
 
-.title {
-  display: block;
+.tricky-text {
+  margin: .5rem 0 0 1rem;
+  color: $color-tricky-text;
   font: {
-    size: 2em;
-    weight: bold;
+    size: 1.2rem;
+    weight: lighter;
+    style: italic;
+    family: "Lucida Console", Consolas, sans-serif;
   }
 }
 
-.tricky-text {
-  margin: .5em 0 0 1em;
-  color: $color-tricky-text;
+hr {
+  margin: .5rem 0;
+  height: 2px;
+  background-color: $color-hr;
+  border: none;
+}
+
+hr.content-separator {
+  margin: 0;
+}
+
+.content {
+  padding: 20px;
+  background-color: $color-content-background;
+}
+
+.category {
+  margin-top: 1rem;
+}
+
+@mixin basetitle {
   font: {
-    size: 1.2em;
-    weight: lighter;
-    style: italic;
-    family: "Lucida Console";
+    family: $font-title;
+    weight: bold;
+  }
+  color: $color-title-font;
+}
+
+
+
+.title {
+  @include basetitle;
+  display: block;
+  font: {
+    size: 2rem;
+  }
+}
+
+h2.category-title {
+  @include basetitle;
+  font-size: 1.8rem;
+}
+
+.anchor-mark {
+  opacity: 0;
+  color: $color-anchor-mark;
+  margin-right: .2rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.anchor-mark:hover, h2:hover .anchor-mark {
+  opacity: 1;
+}
+
+.production-icon {
+  border: 3px solid $color-production-icon-border;
+  background-color: #FFF;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+  }
+}
+
+.production-show {
+  display: inline-block;
+  padding: .5rem;
+  width: 22%;
+  border: $color-production-show-border outset 3px;
+  background-color: $color-production-show-background;
+  margin: 1rem 5px 0 0;
+
+  h3 {
+    @include basetitle;
+    font-size: 1.17rem;
+  }
+
+  p {
+    color: $color-production-show-p-font;
+    text-indent: 1rem;
   }
 }

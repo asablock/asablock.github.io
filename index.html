@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<!--It works well on my machine!-->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Asablock's Homepage</title>
+        <title>Home</title>
         <link rel="stylesheet" href="style/style.css" />
+        <link rel="stylesheet" href="css/fontawesome/css/font-awesome.min.css" />
         <link rel="icon" href="img/icon.png" />
         <!--[if IE]><link rel="stylesheet" href="style/style-ie.css" /><!-->
     </head>
@@ -13,8 +15,7 @@
                 <ul class="navigator-bar">
                     <li>
                         <div class="logo">A</div>
-                    </li><li><a href="index.html" target="_parent">
-                    <span>Home</span></a>
+                    </li><li><a class="nav-link" href="index.html">Home</a>
                 </li></ul>
             </nav>
             <div class="content-wrapper">
@@ -22,6 +23,24 @@
                     <h1 class="title">Asablock's Homepage</h1>
                     <h2 class="tricky-text">-- What are you looking for?</h2>
                 </header>
+                <hr class="content-separator" />
+                <div class="content">
+                    <h1 class="title">Categories</h1>
+                    <section class="category">
+                        <h2 class="category-title" id="mods">
+                            <a class="anchor-mark fa fa-link" href="#mods"></a>Mods
+                        </h2>
+                        <a href="mods/useful-enchantments.html">
+                            <div class="production-show">
+                                <div class="production-icon">
+                                    <img src="img/modicons/useful-enchantments.png" alt="Mod Icon" />
+                                </div>
+                                <h3>Useful Enchantments</h3>
+                                <p>The mod add many useful <wbr /> enchantments to <wbr /> vanilla Minecraft!</p>
+                            </div>
+                        </a>
+                    </section>
+                </div>
             </div>
         </div>
     </body>
