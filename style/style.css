@@ -36,17 +36,12 @@ a.link, a.nav-link {
   -moz-transition: opacity 0.5s;
   -ms-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  color: #FFF;
+  color: #2D4950;
 }
 
 a.link:hover, a.nav-link:hover {
   -moz-opacity: 0.7;
   opacity: 0.7;
-  -webkit-transition: opacity 0.5s;
-  -o-transition: opacity 0.5s;
-  -moz-transition: opacity 0.5s;
-  -ms-transition: opacity 0.5s;
-  transition: opacity 0.5s;
 }
 
 nav {
@@ -91,11 +86,15 @@ nav {
   color: #FFF;
 }
 
+a.nav-link {
+  color: #FFF;
+}
+
 .content-wrapper {
   width: 75%;
   margin: 0 auto;
   border-width: 0 5px 5px 5px;
-  border-color: #2d4958;
+  border-color: #2D4958;
   border-style: solid;
   border-radius: 0 0 5% 5%;
   padding-bottom: 1.4rem;
@@ -108,7 +107,7 @@ header {
   padding: 20px;
 }
 
-.tricky-text {
+.witty-text {
   margin: 0.5rem 0 0 1rem;
   color: #C9C9C9;
   font-size: 1.2rem;
@@ -129,15 +128,11 @@ hr.content-separator {
 }
 
 .content {
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #FAFAFA;
 }
 
-.category {
-  margin-top: 1rem;
-}
-
-.title {
+h1.title {
   font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
   font-weight: bold;
   color: #000;
@@ -145,7 +140,7 @@ hr.content-separator {
   font-size: 2rem;
 }
 
-h2.category-title {
+h2.title {
   font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
   font-weight: bold;
   color: #000;
@@ -160,7 +155,7 @@ h2.category-title {
   text-decoration: none;
 }
 
-.anchor-mark:hover, h2:hover .anchor-mark {
+.anchor-mark:hover, .title:hover .anchor-mark {
   opacity: 1;
 }
 
@@ -191,4 +186,45 @@ h2.category-title {
 .production-show p {
   color: #696969;
   text-indent: 1rem;
+}
+
+section {
+  margin-left: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 4px 0;
+  width: 50%;
+}
+table tr:nth-child(odd) {
+  background-color: #F6F4F0;
+}
+table th {
+  padding: 3px;
+  color: #FFF;
+  background-color: #555;
+  border: 1px solid #555;
+  text-align: left;
+}
+table td {
+  padding: 3px;
+  border: 1px solid #D4D4D4;
+}
+
+ul.list {
+  list-style-type: none;
+  padding-top: 0.5rem;
+}
+ul.list li {
+  padding-left: 0;
+  margin: 0 0 1rem 1rem;
+}
+ul.list li:before {
+  content: url("../img/disc.png");
+  margin-right: 0.8rem;
+}
+
+i.fa {
+  margin-right: 0.3rem;
 }

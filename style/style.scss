@@ -26,7 +26,7 @@ nav, header, article, section {
   src: url("../font/segoeui.ttf") format("truetype");
 }
 
-$color-link-default: #FFF;
+$color-link-font: #2D4950;
 $opacity-link-hover: .7;
 $color-nav-background: #24292F;
 $color-nav-font: #FFF;
@@ -35,9 +35,9 @@ $color-logo-border: #E6DCFF;
 $color-logo-background: #2C3A47;
 $color-logo-font: #DBC2FF;
 $color-body-background: #696969;
-$color-content-border: #2d4958;
+$color-content-border: #2D4958;
 $color-header-background: #EEE;
-$color-tricky-text: #C9C9C9;
+$color-witty-text: #C9C9C9;
 $color-hr: #AAA;
 $color-content-background: #FAFAFA;
 $color-anchor-mark: #C90000;
@@ -46,6 +46,10 @@ $color-production-show-background: $color-production-show-border;
 $color-production-icon-border: #2C3A47;
 $color-title-font: #000;
 $color-production-show-p-font: #696969;
+$color-table-even-row-background: #F6F4F0;
+$color-table-body-border: #D4D4D4;
+$color-table-head-font: #FFF;
+$color-table-head-background: #555;
 $font-title: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
 
 @mixin prefix($property, $value, $browsers: webkit o moz ms) {
@@ -68,12 +72,11 @@ body {
 a.link {
   text-decoration: none;
   @include prefix(transition, opacity .5s);
-  color: $color-link-default;
+  color: $color-link-font;
 }
 
 a.link:hover {
   @include prefix(opacity, $opacity-link-hover, moz);
-  @include prefix(transition, opacity .5s);
 }
 
 nav {
@@ -122,6 +125,7 @@ nav {
 
 a.nav-link {
   @extend .link;
+  color: $color-nav-font;
 }
 
 .content-wrapper {
@@ -143,9 +147,9 @@ header {
   padding: 20px;
 }
 
-.tricky-text {
+.witty-text {
   margin: .5rem 0 0 1rem;
-  color: $color-tricky-text;
+  color: $color-witty-text;
   font: {
     size: 1.2rem;
     weight: lighter;
@@ -166,12 +170,8 @@ hr.content-separator {
 }
 
 .content {
-  padding: 20px;
+  padding: 1.25rem;
   background-color: $color-content-background;
-}
-
-.category {
-  margin-top: 1rem;
 }
 
 @mixin basetitle {
@@ -182,9 +182,7 @@ hr.content-separator {
   color: $color-title-font;
 }
 
-
-
-.title {
+h1.title {
   @include basetitle;
   display: block;
   font: {
@@ -192,7 +190,7 @@ hr.content-separator {
   }
 }
 
-h2.category-title {
+h2.title {
   @include basetitle;
   font-size: 1.8rem;
 }
@@ -205,7 +203,7 @@ h2.category-title {
   text-decoration: none;
 }
 
-.anchor-mark:hover, h2:hover .anchor-mark {
+.anchor-mark:hover, .title:hover .anchor-mark {
   opacity: 1;
 }
 
@@ -237,4 +235,50 @@ h2.category-title {
     color: $color-production-show-p-font;
     text-indent: 1rem;
   }
+}
+
+section {
+  margin-left: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 4px 0;
+  width: 50%;
+
+  tr:nth-child(odd) {
+    background-color: $color-table-even-row-background;
+  }
+
+  th {
+    padding: 3px;
+    color: $color-table-head-font;
+    background-color: $color-table-head-background;
+    border: 1px solid $color-table-head-background;
+    text-align: left;
+  }
+
+  td {
+    padding: 3px;
+    border: 1px solid $color-table-body-border;
+  }
+}
+
+ul.list {
+  list-style-type: none;
+  padding-top: .5rem;
+
+  li {
+    padding-left: 0;
+    margin: 0 0 1rem 1rem;
+  }
+
+  li:before {
+    content: url("../img/disc.png");
+    margin-right: .8rem;
+  }
+}
+
+i.fa {
+  margin-right: .3rem;
 }
