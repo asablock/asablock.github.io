@@ -50,7 +50,11 @@ $color-table-even-row-background: #F6F4F0;
 $color-table-body-border: #D4D4D4;
 $color-table-head-font: #FFF;
 $color-table-head-background: #555;
+$color-active-background: #00DE00;
+$color-stop-updating-background: #A00;
+$color-capsule-font: #FFF;
 $font-title: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
+$font-capsule: SegoeUI, NotoSans, serif;
 
 @mixin prefix($property, $value, $browsers: webkit o moz ms) {
   @each $browser in $browsers {
@@ -218,6 +222,10 @@ h2.title {
   }
 }
 
+.production-box {
+  display: inline;
+}
+
 .production-show {
   display: inline-block;
   padding: .5rem;
@@ -225,6 +233,7 @@ h2.title {
   border: $color-production-show-border outset 3px;
   background-color: $color-production-show-background;
   margin: 1rem 5px 0 0;
+  height: 50rem;
 
   h3 {
     @include basetitle;
@@ -281,4 +290,24 @@ ul.list {
 
 i.fa {
   margin-right: .3rem;
+}
+
+@mixin capsule($color) {
+  margin: .15rem;
+  background-color: $color;
+  padding: .12rem;
+  border-radius: 5px;
+  color: $color-capsule-font;
+  font: {
+    size: 92%;
+    family: $font-capsule;
+  }
+}
+
+span.active {
+  @include capsule($color-active-background);
+}
+
+span.stop-updating {
+  @include capsule($color-stop-updating-background)
 }
