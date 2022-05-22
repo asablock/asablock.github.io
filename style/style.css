@@ -143,28 +143,29 @@ h2.title {
     margin: 0 auto;
     width: 70%; }
 
-.production-box {
-  display: inline; }
-
-.production-show {
-  display: inline-block;
-  padding: .5rem;
-  width: 22%;
-  border: #E0E0E0 outset 3px;
-  background-color: #E0E0E0;
-  margin: 1rem 5px 0 0;
-  height: 50rem; }
-  .production-show h3 {
-    font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
-    font-weight: bold;
-    color: #000;
-    font-size: 1.17rem; }
-  .production-show p {
-    color: #696969;
-    text-indent: 1rem; }
-
 section {
   margin-left: 2rem; }
+
+.production-wrap {
+  display: inline-block;
+  width: 22%; }
+  .production-wrap .production-box {
+    display: inline; }
+    .production-wrap .production-box .production-show {
+      display: inline-block;
+      padding: .5rem;
+      border: #E0E0E0 outset 3px;
+      background-color: #E0E0E0;
+      margin: 1rem 5px 0 0;
+      height: 17rem; }
+      .production-wrap .production-box .production-show h3 {
+        font-family: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
+        font-weight: bold;
+        color: #000;
+        font-size: 1.17rem; }
+      .production-wrap .production-box .production-show p {
+        color: #696969;
+        text-indent: 1rem; }
 
 table {
   border-collapse: collapse;
