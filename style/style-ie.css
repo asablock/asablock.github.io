@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+:root {
+    --opacity-link-hover: .7;
+}
+
+a:hover {
+    filter: alpha(opacity = var(--opacity-link-hover));
+}

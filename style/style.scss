@@ -1,0 +1,326 @@
+@charset "UTF-8";
+
+a, abbr, address, blockquote, body, caption, cite, code,
+dd, del, dfn, div, dl, dt, rem, fieldset, form, h1, h2,
+h3, h4, h5, h6, html, iframe, img, ins, label, legend,
+li, object, ol, p, pre, q, small, span, strong, sub,
+sup, table, tbody, td, tfoot, th, thead, tr, ul, nav,
+header, article, audio, video {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Initialize block HTML5 elrements
+nav, header, article, section {
+  display: block;
+}
+
+@font-face {
+  font-family: "NotoSans";
+  src: url("../font/NotoSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SegoeUI";
+  src: url("../font/segoeui.ttf") format("truetype");
+}
+
+$color-link-font: #2D4950;
+$opacity-link-hover: .7;
+$color-nav-background: #24292F;
+$color-nav-font: #FFF;
+$color-nav-itrem-border: #FFF;
+$color-logo-border: #E6DCFF;
+$color-logo-background: #2C3A47;
+$color-logo-font: #DBC2FF;
+$color-body-background: #696969;
+$color-content-border: #2D4958;
+$color-header-background: #EEE;
+$color-witty-text: #C9C9C9;
+$color-hr: #AAA;
+$color-content-background: #FAFAFA;
+$color-anchor-mark: #C90000;
+$color-production-show-border: #E0E0E0;
+$color-production-show-background: $color-production-show-border;
+$color-production-icon-border: #2C3A47;
+$color-title-font: #000;
+$color-production-show-p-font: #696969;
+$color-table-even-row-background: #F6F4F0;
+$color-table-body-border: #D4D4D4;
+$color-table-head-font: #FFF;
+$color-table-head-background: #555;
+$color-active-background: #00DE00;
+$color-stop-updating-background: #A00;
+$color-finished-background: #00A0FF;
+$color-capsule-font: #FFF;
+$font-title: SegoeUI, NotoSans, "Comic Sans MS", sans-serif;
+$font-capsule: SegoeUI, NotoSans, sans-serif;
+
+@mixin prefix($property, $value, $browsers: webkit o moz ms) {
+  @each $browser in $browsers {
+    -#{$browser}-#{$property}: $value;
+  }
+  #{$property}: $value;
+}
+
+body {
+  font: {
+    family: "Microsoft YaHei UI", "SegoeUI", SimSun, Arial, sans-serif;
+    size: 1rem;
+  }
+  background: $color-body-background;
+  background: url("../img/background.png");
+  background-repeat: repeat;
+}
+
+a.link {
+  text-decoration: none;
+  @include prefix(transition, opacity .5s);
+  color: $color-link-font;
+}
+
+a.link:hover {
+  @include prefix(opacity, $opacity-link-hover, moz);
+}
+
+nav {
+  padding: 0;
+  margin: 0;
+  background-color: $color-nav-background;
+  width: 100%;
+}
+
+.navigator-bar {
+  list-style-type: none;
+  font-weight: 600;
+  color: $color-nav-font;
+  padding-left: .5rem;
+
+  li {
+    display: inline-block;
+    margin: 1.2rem 0;
+    padding: 0 1rem;
+    color: inherit;
+  }
+
+  li:not(:last-child) {
+    border-right: 2px solid $color-nav-itrem-border;
+  }
+}
+
+.logo {
+  display: inline;
+  width: 20px;
+  height: 20px;
+  border-radius: 5%;
+  border: 5px solid $color-logo-border;
+  background-color: $color-logo-background;
+  padding: 0 5px;
+  color: $color-logo-font;
+  user-select: none;
+  font-family: NotoSans, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.white {
+  color: #FFF;
+}
+
+a.nav-link {
+  @extend .link;
+  color: $color-nav-font;
+}
+
+.content-wrapper {
+  width: 75%;
+  margin: 0 auto;
+  border: {
+    width: 0 5px 5px 5px;
+    color: $color-content-border;
+    style: solid;
+    radius: 0 0 5% 5%;
+  }
+  padding-bottom: 1.4rem;
+  background-color: $color-content-background;
+}
+
+header {
+  background-color: $color-header-background;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.witty-text {
+  margin: .5rem 0 0 1rem;
+  color: $color-witty-text;
+  font: {
+    size: 1.2rem;
+    weight: lighter;
+    style: italic;
+    family: "Lucida Console", Consolas, sans-serif;
+  }
+}
+
+hr {
+  margin: .5rem 0;
+  height: 2px;
+  background-color: $color-hr;
+  border: none;
+}
+
+hr.content-separator {
+  margin: 0;
+}
+
+.content {
+  padding: 1.25rem;
+  background-color: $color-content-background;
+}
+
+@mixin basetitle {
+  font: {
+    family: $font-title;
+    weight: bold;
+  }
+  color: $color-title-font;
+}
+
+h1.title {
+  @include basetitle;
+  display: block;
+  font: {
+    size: 2rem;
+  }
+}
+
+h2.title {
+  @include basetitle;
+  font-size: 1.8rem;
+}
+
+.anchor-mark {
+  opacity: 0;
+  color: $color-anchor-mark;
+  margin-right: .2rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.anchor-mark:hover, .title:hover .anchor-mark {
+  opacity: 1;
+}
+
+.production-icon {
+  border: 3px solid $color-production-icon-border;
+  background-color: #FFF;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+  }
+}
+
+section {
+  margin-left: 2rem;
+}
+
+.production-wrap {
+  display: inline-block;
+  width: 22%;
+
+  .production-box {
+    display: inline;
+
+    .production-show {
+      display: inline-block;
+      padding: .5rem;
+      border: $color-production-show-border outset 3px;
+      background-color: $color-production-show-background;
+      margin: 1rem 5px 0 0;
+      height: 17rem;
+
+      h3 {
+        @include basetitle;
+        font-size: 1.17rem;
+      }
+
+      p {
+        color: $color-production-show-p-font;
+        text-indent: 1rem;
+      }
+    }
+  }
+}
+
+table {
+  border-collapse: collapse;
+  margin: 4px 0;
+  width: 50%;
+
+  tr:nth-child(odd) {
+    background-color: $color-table-even-row-background;
+  }
+
+  th {
+    padding: 3px;
+    color: $color-table-head-font;
+    background-color: $color-table-head-background;
+    border: 1px solid $color-table-head-background;
+    text-align: left;
+  }
+
+  td {
+    padding: 3px;
+    border: 1px solid $color-table-body-border;
+  }
+}
+
+ul.list {
+  list-style-type: none;
+  padding-top: .5rem;
+
+  li {
+    padding-left: 0;
+    margin: 0 0 1rem 1rem;
+  }
+
+  li:before {
+    content: url("../img/disc.png");
+    margin-right: .8rem;
+  }
+}
+
+i.fa {
+  margin-right: .3rem;
+}
+
+@mixin capsule($color) {
+  margin: .15rem;
+  background-color: $color;
+  padding: .12rem;
+  border-radius: 5px;
+  color: $color-capsule-font;
+  font: {
+    size: 92%;
+    family: $font-capsule;
+  }
+}
+
+span.active {
+  @include capsule($color-active-background);
+}
+
+span.stop-updating {
+  @include capsule($color-stop-updating-background)
+}
+
+span.finished {
+  @include capsule($color-finished-background)
+}
+
+img {
+  image-rendering: pixelated;
+}
