@@ -193,8 +193,14 @@ ul.list {
     content: url("../img/disc.png");
     margin-right: .8rem; }
 
-i.fa {
+i.fa.fa-download {
   margin-right: .3rem; }
+
+.text-green {
+  color: forestgreen; }
+
+.text-red {
+  color: darkred; }
 
 span.active {
   margin: .15rem;

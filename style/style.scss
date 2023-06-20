@@ -293,8 +293,16 @@ ul.list {
   }
 }
 
-i.fa {
+i.fa.fa-download {
   margin-right: .3rem;
+}
+
+.text-green {
+  color: forestgreen;
+}
+
+.text-red {
+  color: darkred;
 }
 
 @mixin capsule($color) {
