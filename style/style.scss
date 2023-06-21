@@ -140,7 +140,7 @@ a.nav-link {
     width: 0 5px 5px 5px;
     color: $color-content-border;
     style: solid;
-    radius: 0 0 5% 5%;
+    radius: 0 0 38px 38px;
   }
   padding-bottom: 1.4rem;
   background-color: $color-content-background;
@@ -176,7 +176,7 @@ hr.content-separator {
 
 .content {
   padding: 1.25rem;
-  background-color: $color-content-background;
+  background-color: transparent;
 }
 
 @mixin basetitle {
